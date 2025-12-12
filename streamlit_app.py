@@ -12,18 +12,8 @@ import streamlit as st
 # =========================
 # 0) 기본 설정/경로 (GitHub/Streamlit Cloud)
 # =========================
-import matplotlib.font_manager as fm
-
-FONT_PATH = BASE_DIR / "NotoSansKR-Regular.otf"
-
-if FONT_PATH.exists():
-    font_prop = fm.FontProperties(fname=str(FONT_PATH))
-    mpl.rcParams["font.family"] = font_prop.get_name()
-else:
-    mpl.rcParams["font.family"] = "sans-serif"
-
+mpl.rcParams["font.family"] = "Malgun Gothic"
 mpl.rcParams["axes.unicode_minus"] = False
-
 
 # ✅ 레포 루트 기준 상대경로
 try:
