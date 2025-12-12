@@ -12,8 +12,29 @@ import streamlit as st
 # =========================
 # 0) 기본 설정/경로 (GitHub/Streamlit Cloud)
 # =========================
-mpl.rcParams["font.family"] = "Malgun Gothic"
+# =========================
+# 한글 폰트 설정 (OTF / Streamlit Cloud 대응)
+# =========================
+import matplotlib.font_manager as fm
+
 mpl.rcParams["axes.unicode_minus"] = False
+
+def set_korean_font():
+    font_path = (
+        Path(__file__).resolve().parent / "NotoSansKR-Regular.otf"
+        if "__file__" in globals()
+        else Path.cwd() / "NotoSansKR-Regular.otf"
+    )
+
+    if font_path.exists():
+        fm.fontManager.addfont(str(font_path))
+        font_prop = fm.FontProperties(fname=str(font_path))
+        mpl.rcParams["font.family"] = font_prop.get_name()
+    else:
+        mpl.rcParams["font.family"] = "sans-serif"
+
+set_korean_font()
+
 
 # ✅ 레포 루트 기준 상대경로
 try:
