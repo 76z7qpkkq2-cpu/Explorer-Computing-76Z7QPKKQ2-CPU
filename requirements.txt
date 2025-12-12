@@ -1,5 +1,7 @@
 streamlit
 pandas
 matplotlib
-seaborn
+requests
+beautifulsoup4
 openpyxl
+lxml
